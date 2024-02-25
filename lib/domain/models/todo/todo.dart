@@ -7,12 +7,14 @@ part 'todo.g.dart';
 @JsonSerializable()
 class Todo {
   final String task;
+  final String description;
   final String category;
   final bool isDone;
   final int id;
 
   Todo({
     required this.task,
+    required this.description,
     required this.category,
     required this.isDone,
     required this.id,

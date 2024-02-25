@@ -128,11 +128,15 @@ class _EmptyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 200),
-        Text(isTasksEmpty ? 'You have no tasks' : 'No tasks with that filters'),
-      ],
+    return Center(
+      child: Column(
+        children: [
+          const SizedBox(height: 200),
+          Text(
+            isTasksEmpty ? 'You have no tasks' : 'No tasks with that filters',
+          ),
+        ],
+      ),
     );
   }
 }

@@ -69,9 +69,14 @@ class TodoCubit extends Cubit<TodoState> {
     emit(state.copyWith(categoryFilters: oldFilters));
   }
 
-  addTodo({required String todo, required String category}) async {
+  addTodo({
+    required String todo,
+    required String description,
+    required String category,
+  }) async {
     await _repository.addTodo(Todo(
       task: todo,
+      description: description,
       category: category,
       isDone: false,
       id: Random().nextInt(10000),

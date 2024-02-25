@@ -7,6 +7,7 @@ class AddTodoScreen extends StatelessWidget {
   AddTodoScreen({Key? key}) : super(key: key);
   final TextEditingController _categoryController = TextEditingController();
   final TextEditingController _taskController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +34,23 @@ class AddTodoScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
+            const Text('Description'),
+            TextFormField(
+              controller: _descriptionController,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             OutlinedButton(
               onPressed: () async {
                 if (_categoryController.text.isNotEmpty &&
-                    _taskController.text.isNotEmpty) {
+                    _taskController.text.isNotEmpty &&
+                    _descriptionController.text.isNotEmpty) {
                   await context.read<TodoCubit>().addTodo(
-                      todo: _taskController.text,
-                      category: _categoryController.text);
+                        todo: _taskController.text,
+                        category: _categoryController.text,
+                        description: _descriptionController.text,
+                      );
                   if (context.mounted) {
                     GoRouter.of(context).pop();
                   }

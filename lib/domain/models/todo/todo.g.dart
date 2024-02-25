@@ -9,6 +9,8 @@ part of 'todo.dart';
 abstract class _$TodoCWProxy {
   Todo task(String task);
 
+  Todo description(String description);
+
   Todo category(String category);
 
   Todo isDone(bool isDone);
@@ -23,6 +25,7 @@ abstract class _$TodoCWProxy {
   /// ````
   Todo call({
     String? task,
+    String? description,
     String? category,
     bool? isDone,
     int? id,
@@ -37,6 +40,9 @@ class _$TodoCWProxyImpl implements _$TodoCWProxy {
 
   @override
   Todo task(String task) => this(task: task);
+
+  @override
+  Todo description(String description) => this(description: description);
 
   @override
   Todo category(String category) => this(category: category);
@@ -57,6 +63,7 @@ class _$TodoCWProxyImpl implements _$TodoCWProxy {
   /// ````
   Todo call({
     Object? task = const $CopyWithPlaceholder(),
+    Object? description = const $CopyWithPlaceholder(),
     Object? category = const $CopyWithPlaceholder(),
     Object? isDone = const $CopyWithPlaceholder(),
     Object? id = const $CopyWithPlaceholder(),
@@ -66,6 +73,11 @@ class _$TodoCWProxyImpl implements _$TodoCWProxy {
           ? _value.task
           // ignore: cast_nullable_to_non_nullable
           : task as String,
+      description:
+          description == const $CopyWithPlaceholder() || description == null
+              ? _value.description
+              // ignore: cast_nullable_to_non_nullable
+              : description as String,
       category: category == const $CopyWithPlaceholder() || category == null
           ? _value.category
           // ignore: cast_nullable_to_non_nullable
@@ -94,6 +106,7 @@ extension $TodoCopyWith on Todo {
 
 Todo _$TodoFromJson(Map<String, dynamic> json) => Todo(
       task: json['task'] as String,
+      description: json['description'] as String,
       category: json['category'] as String,
       isDone: json['isDone'] as bool,
       id: json['id'] as int,
@@ -101,6 +114,7 @@ Todo _$TodoFromJson(Map<String, dynamic> json) => Todo(
 
 Map<String, dynamic> _$TodoToJson(Todo instance) => <String, dynamic>{
       'task': instance.task,
+      'description': instance.description,
       'category': instance.category,
       'isDone': instance.isDone,
       'id': instance.id,

@@ -33,7 +33,10 @@ class TodoDetailsScreen extends StatelessWidget {
                   'Category:',
                   style: AppTextStyles.size16(),
                 ),
-                Text(element.category),
+                Text(
+                  element.category,
+                  softWrap: true,
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -41,7 +44,21 @@ class TodoDetailsScreen extends StatelessWidget {
                   'Task:',
                   style: AppTextStyles.size16(),
                 ),
-                Text(element.task),
+                Text(
+                  element.task,
+                  softWrap: true,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Description:',
+                  style: AppTextStyles.size16(),
+                ),
+                Text(
+                  element.description,
+                  softWrap: true,
+                ),
                 const SizedBox(
                   height: 20,
                 ),
