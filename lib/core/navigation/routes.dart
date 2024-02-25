@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:todo_weather/presentation/todo/view/add_todo_screen.dart';
 import 'package:todo_weather/presentation/todo/view/todo_details_screen.dart';
 import 'package:todo_weather/presentation/todo/view/todo_screen.dart';
+import 'package:todo_weather/presentation/weather/view/weather_screen.dart';
 
 abstract class AppPages {
   static const toTodoScreen = '/toTodoScreen';
@@ -25,6 +26,10 @@ abstract class AppPages {
     GoRoute(
       path: toTodoScreen,
       builder: (_, __) => const TodoScreen(),
+    ),
+    GoRoute(
+      path: toWeatherScreen,
+      builder: (_, __) => const WeatherScreen(),
     ),
   ];
 }

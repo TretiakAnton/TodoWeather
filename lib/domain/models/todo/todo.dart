@@ -9,11 +9,13 @@ class Todo {
   final String task;
   final String category;
   final bool isDone;
+  final int id;
 
   Todo({
     required this.task,
     required this.category,
     required this.isDone,
+    required this.id,
   });
 
   factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);

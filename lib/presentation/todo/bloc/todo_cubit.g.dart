@@ -11,6 +11,12 @@ abstract class _$TodoStateCWProxy {
 
   TodoState tasks(List<Todo> tasks);
 
+  TodoState selectedId(int? selectedId);
+
+  TodoState doneFilters(List<bool> doneFilters);
+
+  TodoState categoryFilters(List<String> categoryFilters);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `TodoState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -20,6 +26,9 @@ abstract class _$TodoStateCWProxy {
   TodoState call({
     BlocStates? st,
     List<Todo>? tasks,
+    int? selectedId,
+    List<bool>? doneFilters,
+    List<String>? categoryFilters,
   });
 }
 
@@ -36,6 +45,17 @@ class _$TodoStateCWProxyImpl implements _$TodoStateCWProxy {
   TodoState tasks(List<Todo> tasks) => this(tasks: tasks);
 
   @override
+  TodoState selectedId(int? selectedId) => this(selectedId: selectedId);
+
+  @override
+  TodoState doneFilters(List<bool> doneFilters) =>
+      this(doneFilters: doneFilters);
+
+  @override
+  TodoState categoryFilters(List<String> categoryFilters) =>
+      this(categoryFilters: categoryFilters);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `TodoState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -46,6 +66,9 @@ class _$TodoStateCWProxyImpl implements _$TodoStateCWProxy {
   TodoState call({
     Object? st = const $CopyWithPlaceholder(),
     Object? tasks = const $CopyWithPlaceholder(),
+    Object? selectedId = const $CopyWithPlaceholder(),
+    Object? doneFilters = const $CopyWithPlaceholder(),
+    Object? categoryFilters = const $CopyWithPlaceholder(),
   }) {
     return TodoState(
       st: st == const $CopyWithPlaceholder() || st == null
@@ -56,6 +79,20 @@ class _$TodoStateCWProxyImpl implements _$TodoStateCWProxy {
           ? _value.tasks
           // ignore: cast_nullable_to_non_nullable
           : tasks as List<Todo>,
+      selectedId: selectedId == const $CopyWithPlaceholder()
+          ? _value.selectedId
+          // ignore: cast_nullable_to_non_nullable
+          : selectedId as int?,
+      doneFilters:
+          doneFilters == const $CopyWithPlaceholder() || doneFilters == null
+              ? _value.doneFilters
+              // ignore: cast_nullable_to_non_nullable
+              : doneFilters as List<bool>,
+      categoryFilters: categoryFilters == const $CopyWithPlaceholder() ||
+              categoryFilters == null
+          ? _value.categoryFilters
+          // ignore: cast_nullable_to_non_nullable
+          : categoryFilters as List<String>,
     );
   }
 }

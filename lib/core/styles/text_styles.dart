@@ -7,6 +7,12 @@ class AppTextStyles {
     );
   }
 
+  static TextStyle size16() {
+    return const TextStyle(
+      fontSize: 16,
+    );
+  }
+
   static TextStyle size20Bold() {
     return const TextStyle(
       fontSize: 20,

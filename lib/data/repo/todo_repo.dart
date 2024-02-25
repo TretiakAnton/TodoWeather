@@ -26,6 +26,28 @@ class TodoRepository {
     return result;
   }
 
+  Future<void> deleteTodo(int id) async {
+    await initPrefs();
+    List<Todo> todos = await getTodos();
+    int index = todos.indexWhere((todo) => todo.id == id);
+    todos.removeAt(index);
+    final json = List.from(todos.map((item) => item.toJson()));
+    final string = jsonEncode(json);
+    await preferences?.setString(SharedKeyManager.todosKey, string);
+  }
+
+  Future<void> completeTodo(int id) async {
+    await initPrefs();
+    List<Todo> todos = await getTodos();
+    int index = todos.indexWhere((todo) => todo.id == id);
+
+    ///update isDone to show complete
+    todos[index] = todos[index].copyWith(isDone: true);
+    final json = List.from(todos.map((item) => item.toJson()));
+    final string = jsonEncode(json);
+    await preferences?.setString(SharedKeyManager.todosKey, string);
+  }
+
   initPrefs() async {
     preferences ??= await SharedPreferences.getInstance();
   }

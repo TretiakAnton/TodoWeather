@@ -13,6 +13,8 @@ abstract class _$TodoCWProxy {
 
   Todo isDone(bool isDone);
 
+  Todo id(int id);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Todo(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -23,6 +25,7 @@ abstract class _$TodoCWProxy {
     String? task,
     String? category,
     bool? isDone,
+    int? id,
   });
 }
 
@@ -42,6 +45,9 @@ class _$TodoCWProxyImpl implements _$TodoCWProxy {
   Todo isDone(bool isDone) => this(isDone: isDone);
 
   @override
+  Todo id(int id) => this(id: id);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Todo(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -53,6 +59,7 @@ class _$TodoCWProxyImpl implements _$TodoCWProxy {
     Object? task = const $CopyWithPlaceholder(),
     Object? category = const $CopyWithPlaceholder(),
     Object? isDone = const $CopyWithPlaceholder(),
+    Object? id = const $CopyWithPlaceholder(),
   }) {
     return Todo(
       task: task == const $CopyWithPlaceholder() || task == null
@@ -67,6 +74,10 @@ class _$TodoCWProxyImpl implements _$TodoCWProxy {
           ? _value.isDone
           // ignore: cast_nullable_to_non_nullable
           : isDone as bool,
+      id: id == const $CopyWithPlaceholder() || id == null
+          ? _value.id
+          // ignore: cast_nullable_to_non_nullable
+          : id as int,
     );
   }
 }
@@ -85,10 +96,12 @@ Todo _$TodoFromJson(Map<String, dynamic> json) => Todo(
       task: json['task'] as String,
       category: json['category'] as String,
       isDone: json['isDone'] as bool,
+      id: json['id'] as int,
     );
 
 Map<String, dynamic> _$TodoToJson(Todo instance) => <String, dynamic>{
       'task': instance.task,
       'category': instance.category,
       'isDone': instance.isDone,
+      'id': instance.id,
     };
